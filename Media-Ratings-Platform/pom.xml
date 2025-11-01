@@ -13,5 +13,37 @@
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <!-- Postgre -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.8</version>
+        </dependency>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.40</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Hashing -->
+        <dependency>
+            <groupId>com.password4j</groupId>
+            <artifactId>password4j</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+        <!-- Json -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.14.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
