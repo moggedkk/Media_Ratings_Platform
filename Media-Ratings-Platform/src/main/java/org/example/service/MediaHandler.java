@@ -28,12 +28,11 @@ public class MediaHandler implements HttpHandler{
             case "PUT":
                 putRequests(exchange);
                 break;
-            case "DEL":
+            case "DELETE":
                 delRequests(exchange);
                 break;
             default:
-                response.setStatusCode(404);
-                response.setBody("Method not supported");
+                response.notFound("Method not supported");
         }
     }
     public void postRequests(HttpExchange exchange) throws IOException {
@@ -41,38 +40,34 @@ public class MediaHandler implements HttpHandler{
         if(path.endsWith("/media")){
             response = mediaService.handleCreateMedia(exchange);
         }else{
-            response.setStatusCode(400);
-            response.setBody("Method not supported");
+            response.notFound("Method not supported");
         }
         ResponseSender.sendResponse(exchange, response);
     }
     public void getRequests(HttpExchange exchange) throws IOException {
         String path = exchange.getRequestURI().getPath();
-        if(path.endsWith("/media")){
-            response = mediaService.handleCreateMedia(exchange);
+        if(path.matches("/api/media/[0-9]+")){
+            response = mediaService.handleGetMedia(exchange);
         }else{
-            response.setStatusCode(400);
-            response.setBody("Method not supported");
+            response.notFound("Method not supported");
         }
         ResponseSender.sendResponse(exchange, response);
     }
     public void putRequests(HttpExchange exchange) throws IOException {
         String path = exchange.getRequestURI().getPath();
-        if(path.endsWith("/media")){
-            response = mediaService.handleCreateMedia(exchange);
+        if(path.matches("/api/media/[0-9]+")){
+            response = mediaService.handleUpdateMedia(exchange);
         }else{
-            response.setStatusCode(400);
-            response.setBody("Method not supported");
+            response.notFound("Method not supported");
         }
         ResponseSender.sendResponse(exchange, response);
     }
     public void delRequests(HttpExchange exchange) throws IOException {
         String path = exchange.getRequestURI().getPath();
-        if(path.endsWith("/media")){
-            response = mediaService.handleCreateMedia(exchange);
+        if(path.matches("/api/media/[0-9]+")){
+            response = mediaService.handleDeleteMedia(exchange);
         }  else{
-            response.setStatusCode(400);
-            response.setBody("Method not supported");
+            response.notFound("Method not supported");
         }
         ResponseSender.sendResponse(exchange, response);
     }

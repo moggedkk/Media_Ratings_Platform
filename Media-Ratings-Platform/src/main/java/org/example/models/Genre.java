@@ -1,6 +1,6 @@
 package org.example.models;
 
-public enum genre {
+public enum Genre {
     ACTION,
     ADVENTURE,
     COMEDY,

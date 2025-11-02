@@ -3,7 +3,7 @@ package org.example.business;
 import com.sun.net.httpserver.HttpExchange;
 import org.example.data.UserRepository;
 import org.example.models.Response;
-import org.example.security.ExtractId;
+import org.example.security.ExtractUserId;
 
 public class UserService {
     private final UserRepository userRepository;
@@ -12,7 +12,7 @@ public class UserService {
     }
     public Response handleUserProfile(HttpExchange exchange) {
         String path = exchange.getRequestURI().getPath();
-        String userId = ExtractId.extractUserProfileId(path);
+        String userId = ExtractUserId.ExtractId(path);
         System.out.println("User Profile Id: " + userId);
         Response response = new Response();
 

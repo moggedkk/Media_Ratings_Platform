@@ -4,12 +4,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
 public class Media {
-    public Media(String user_id, String title, String description, Date releaseYear, int ageRestriction, mediaType mediaType, List<genre> genres) {
+    public Media(int user_id, String title, String description, int releaseYear, int ageRestriction, mediaType mediaType, List<Genre> genres) {
         this.user_id = user_id;
         this.title = title;
         this.description = description;
@@ -19,17 +18,17 @@ public class Media {
         this.genres = genres;
     }
     @Getter @Setter
-    String user_id;
+    int user_id;
     @Getter @Setter
     String title;
     @Getter @Setter
     String description;
     @Getter @Setter
-    Date releaseYear;
+    int releaseYear;
     @Getter @Setter
     int ageRestriction;
     @Getter @Setter
     mediaType mediaType;
     @Getter @Setter
-    List<genre> genres;
+    List<Genre> genres;
 }
